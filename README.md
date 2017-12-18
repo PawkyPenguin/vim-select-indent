@@ -25,13 +25,15 @@ The plugin provides two methods that you can use: `select_inner_indent` and `sel
 
 ```vim
 
-" Provides text objects for indentation
-onoremap ii :call selectindent#select_inner_indent()<CR>
-onoremap ai :call selectindent#select_outer_indent()<CR>
+if exists(':SelectIndentVersion')
+	" Use indents as text objects
+	onoremap ii :call selectindent#select_inner_indent()<CR>
+	onoremap ai :call selectindent#select_outer_indent()<CR>
 
-" Select whole blocks of indentation
-vnoremap ii :<c-u>call selectindent#select_inner_indent()<CR>
-vnoremap ai :<c-u>call selectindent#select_outer_indent()<CR>
+	" Select whole indents
+	vnoremap ii :<c-u>call selectindent#select_inner_indent()<CR>
+	vnoremap ai :<c-u>call selectindent#select_outer_indent()<CR>
+endif
 
 ```
 
